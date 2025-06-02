@@ -60,5 +60,17 @@ public class ProductoOtaku {
     public void setStock(int stock) {
         this.stock = stock;
     }
-}
 
+
+// Método toString para que mostremos la información del producto
+@Override
+public String toString() {
+    return "ProductoOtaku {" +
+            "ID=" + id +
+            ", Nombre='" + nombre + '\'' +
+            ", Categoría='" + categoria + '\'' +
+            ", Precio=" + String.format("%.2f", precio) + " €" +
+            ", Stock=" + stock + " unidades" +
+            '}';
+	}
+}
