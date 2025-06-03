@@ -7,11 +7,7 @@ public class ProductoOtaku {
     private double precio;
     private int stock;
 
-    // Constructor vacío
-    public ProductoOtaku() {
-    }
-
-    // Constructor con todos los atributos
+    // Constructor completo
     public ProductoOtaku(int id, String nombre, String categoria, double precio, int stock) {
         this.id = id;
         this.nombre = nombre;
@@ -20,7 +16,7 @@ public class ProductoOtaku {
         this.stock = stock;
     }
 
-    // Getters y Setters
+    // Getters y setters para acceder y modificar los atributos
     public int getId() {
         return id;
     }
@@ -61,16 +57,10 @@ public class ProductoOtaku {
         this.stock = stock;
     }
 
-
-// Método toString para que mostremos la información del producto
-@Override
-public String toString() {
-    return "ProductoOtaku {" +
-            "ID=" + id +
-            ", Nombre='" + nombre + '\'' +
-            ", Categoría='" + categoria + '\'' +
-            ", Precio=" + String.format("%.2f", precio) + " €" +
-            ", Stock=" + stock + " unidades" +
-            '}';
-	}
+    // Método para mostrar el producto en forma de texto
+    @Override
+    public String toString() {
+        return "Producto [ID=" + id + ", Nombre=" + nombre + ", Categoría=" + categoria + ", Precio=" + precio + ", Stock=" + stock + "]";
+    }
 }
+
