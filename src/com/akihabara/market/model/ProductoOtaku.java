@@ -1,22 +1,31 @@
 package com.akihabara.market.model;
 
 public class ProductoOtaku {
-    private int id;
+    private int id;  // NUEVO campo
     private String nombre;
     private String categoria;
     private double precio;
-    private int stock;
 
-    // Constructor completo
-    public ProductoOtaku(int id, String nombre, String categoria, double precio, int stock) {
+    // Constructor vacío
+    public ProductoOtaku() {
+    }
+
+    // Constructor con ID
+    public ProductoOtaku(int id, String nombre, String categoria, double precio) {
         this.id = id;
         this.nombre = nombre;
         this.categoria = categoria;
         this.precio = precio;
-        this.stock = stock;
     }
 
-    // Getters y setters para acceder y modificar los atributos
+    // Constructor sin ID (para agregar productos nuevos)
+    public ProductoOtaku(String nombre, String categoria, double precio) {
+        this.nombre = nombre;
+        this.categoria = categoria;
+        this.precio = precio;
+    }
+
+    // Getters y setters
     public int getId() {
         return id;
     }
@@ -49,18 +58,11 @@ public class ProductoOtaku {
         this.precio = precio;
     }
 
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    // Método para mostrar el producto en forma de texto
+    // Método toString
     @Override
     public String toString() {
-        return "Producto [ID=" + id + ", Nombre=" + nombre + ", Categoría=" + categoria + ", Precio=" + precio + ", Stock=" + stock + "]";
+        return "ID: " + id + " | Producto: " + nombre + " | Categoría: " + categoria + " | Precio: $" + precio;
     }
 }
+
 

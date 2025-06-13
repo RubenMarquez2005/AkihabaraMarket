@@ -2,59 +2,66 @@ package com.akihabara.market.view;
 
 import java.util.Scanner;
 
-// Esta clase es la vista: pide datos al usuario y muestra información
 public class InterfazConsola {
-    private Scanner sc;
+    private Scanner scanner;
 
     public InterfazConsola() {
-        sc = new Scanner(System.in);
+        scanner = new Scanner(System.in);
     }
 
-    // Muestra el menú principal
-    public void mostrarMenu() {
-        System.out.println("\n--- Menú Akihabara Otaku Market ---");
+    public void mostrarMenuPrincipal() {
+        System.out.println("\n=== MENÚ PRINCIPAL ===");
         System.out.println("1. Añadir producto");
         System.out.println("2. Consultar producto por ID");
         System.out.println("3. Listar todos los productos");
-        System.out.println("4. Buscar productos por nombre");
-        System.out.println("5. Buscar productos por categoría");
+        System.out.println("4. Listar productos por nombre");
+        System.out.println("5. Listar productos por categoría");
         System.out.println("6. Actualizar producto");
         System.out.println("7. Eliminar producto");
         System.out.println("8. Salir");
-        System.out.print("Elige una opción: ");
+        System.out.print("Seleccione una opción: ");
     }
 
     public int leerOpcion() {
         int opcion = -1;
         try {
-            opcion = Integer.parseInt(sc.nextLine());
+            opcion = Integer.parseInt(scanner.nextLine());
         } catch (NumberFormatException e) {
-            System.out.println(" Por favor, escribe un número válido.");
+            System.out.println("⚠ Entrada inválida. Ingrese un número.");
         }
         return opcion;
     }
 
-    public int pedirId() {
-        System.out.print("Introduce el ID del producto: ");
-        return Integer.parseInt(sc.nextLine());
-    }
-
-    public String pedirTexto(String campo) {
-        System.out.print("Introduce " + campo + ": ");
-        return sc.nextLine();
+    public String pedirTexto(String mensaje) {
+        System.out.print(mensaje + ": ");
+        return scanner.nextLine();
     }
 
     public double pedirPrecio() {
-        System.out.print("Introduce el precio: ");
-        return Double.parseDouble(sc.nextLine());
+        System.out.print("Ingrese el precio: ");
+        try {
+            return Double.parseDouble(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("⚠ Precio inválido.");
+            return -1;
+        }
     }
 
     public int pedirStock() {
-        System.out.print("Introduce el stock: ");
-        return Integer.parseInt(sc.nextLine());
+        System.out.print("Ingrese el stock: ");
+        try {
+            return Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("⚠ Stock inválido.");
+            return -1;
+        }
     }
 
-    public void mostrarMensaje(String msg) {
-        System.out.println(msg);
+    public void mostrarMensaje(String mensaje) {
+        System.out.println(mensaje);
+    }
+
+    public void mostrarProducto(String producto) {
+        System.out.println(">> " + producto);
     }
 }
